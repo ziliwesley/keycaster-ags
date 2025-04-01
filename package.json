@@ -1,0 +1,11 @@
+{
+  "author": "ziliwesley",
+  "description": "",
+  "license": "MIT",
+  "main": "index.js",
+  "name": "keycaster-ags",
+  "scripts": {
+    "dev": "./scripts/dev.sh"
+  },
+  "version": "1.0.0"
+}

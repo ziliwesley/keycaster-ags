@@ -1,0 +1,42 @@
+window {
+  all: unset;
+  background-color: alpha(#181818, 0.8);
+  border-radius: 16px;
+  border: 1px solid #444;
+}
+
+window > box {
+  /* border-radius: 24px; */
+  background-color: #181818;
+}
+
+.key_area {
+  color: white;
+  font-size: 32px;
+  font-family: "Noto Sans Mono";
+}
+
+button.modifier-key {
+  background-color: #333;
+  margin: 8px 1px 0 1px;
+  font-size: 24px;
+  font-family: "Noto Sans Mono";
+  border-radius: 0;
+}
+
+button.modifier-key.pressed {
+  background-color: #444;
+}
+
+button.modifier-key:first-child {
+  border-bottom-left-radius: 8px;
+}
+
+button.modifier-key:last-child {
+  border-bottom-right-radius: 8px;
+}
+
+box.button-bar {
+  padding: 0;
+  margin: 0;
+}
