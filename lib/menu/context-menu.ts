@@ -1,7 +1,7 @@
 import { App, Astal, Gdk, Gtk } from "astal/gtk4";
 import Gio from "gi://Gio?version=2.0";
 import GLib from "gi://GLib?version=2.0";
-import { AppState } from "../app/state";
+import { AppState, toggleAppState } from "../app/state";
 
 /**
  * Attaches menu items for switching between monitors to the given menu.
@@ -76,9 +76,28 @@ function attachQuitMenuItem(menu: Gio.Menu, actGrp: Gio.SimpleActionGroup) {
     App.quit();
   });
 
+  // Toggle Pause action
+  const actToggle = new Gio.SimpleAction({ name: "toggle" });
+
+  const itemPause = new Gio.MenuItem();
+  itemPause.set_label("Pause(Hide)");
+  itemPause.set_action_and_target_value("_app.toggle", null);
+
+  actToggle.connect("activate", () => {
+    toggleAppState();
+
+    if (AppState.paused.get()) {
+      itemPause.set_label("Resume");
+    } else {
+      itemPause.set_label("Pause");
+    }
+  });
+
   // Add the quit item to the menu
+  menu.append_item(itemPause);
   menu.append("Quit", "_app.quit");
   // Add the quit action to the action group
+  actGrp.add_action(actToggle);
   actGrp.add_action(actQuit);
 }
 
