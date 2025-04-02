@@ -1,4 +1,5 @@
-import { Variable } from "astal";
+import { AstalIO, Variable } from "astal";
+import { timeout } from "astal/time";
 import { AppConfig } from "../../app/state";
 import {
   EventName,
@@ -13,7 +14,6 @@ import {
   MouseBtnMap,
   SpecialKeySymbolMap,
 } from "../../input-manager/key-mapping";
-import { clearTimeoutOrInterval, setTimeout } from "../../utils/timeout";
 import { Visualizer, VisualizerContext } from "../base/type";
 
 /**
@@ -143,7 +143,7 @@ const visualizer: Visualizer = {
     const isCtrlKeyPressed = Variable(false);
     const dynamicText = Variable("");
 
-    let timeoutId: number;
+    let intervalTimer: AstalIO.Time;
 
     /**
      * Outputs the given string to the dynamic text variable and manages timeout for clearing it.
@@ -152,16 +152,23 @@ const visualizer: Visualizer = {
     const output = (out: string) => {
       dynamicText.set(dynamicText.get() + out);
 
-      if (AppConfig.timeout > 0) {
-        // Clear the previous timeout if it exists
-        if (timeoutId) {
-          clearTimeoutOrInterval(timeoutId);
-        }
+      // Clear previous timeout
+      if (intervalTimer) {
+        intervalTimer.cancel();
+        intervalTimer = undefined;
+      }
 
-        timeoutId = setTimeout(() => {
+      if (AppConfig.timeout > 0) {
+        const prevTimer = intervalTimer;
+
+        intervalTimer = timeout(AppConfig.timeout, () => {
           dynamicText.set("");
-          timeoutId = 0;
-        }, AppConfig.timeout);
+          console.log("Clearing dynamic text");
+
+          if (prevTimer) {
+            prevTimer.cancel();
+          }
+        });
       }
     };
 
