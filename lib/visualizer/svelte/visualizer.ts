@@ -25,7 +25,7 @@ function handleKeyPressed(evt: KeyEvent, ctx: VisualizerContext) {
   // Mouse events
   if (evt.event_name === EventName.POINTER_BUTTON) {
     if (AppConfig.showMouseAction) {
-      ctx.output(MouseBtnMap[evt.key_name]);
+      ctx.output(MouseBtnMap[evt.key_name] ?? evt.key_name);
       return;
     } else {
       return;

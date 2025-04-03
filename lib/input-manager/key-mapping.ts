@@ -55,8 +55,8 @@ export const SpecialKeySymbolMap = {
 
   // Extra fn keys
   KEY_SYSRQ: "⎙",
-  KEY_BRIGHTNESSDOWN: "☼⇂",
-  KEY_BRIGHTNESSUP: "☼↾",
+  KEY_BRIGHTNESSDOWN: "🔅",
+  KEY_BRIGHTNESSUP: "🔆",
 
   KEY_PLAYPAUSE: "⏵",
   KEY_PREVIOUSSONG: "⏮",
@@ -65,6 +65,25 @@ export const SpecialKeySymbolMap = {
 
   KEY_HOME: "⇱",
   KEY_END: "⇲",
+
+  KEY_NUMLOCK: "⇭",
+  KEY_KP1: "1",
+  KEY_KP2: "2",
+  KEY_KP3: "3",
+  KEY_KP4: "4",
+  KEY_KP5: "5",
+  KEY_KP6: "6",
+  KEY_KP7: "7",
+  KEY_KP8: "8",
+  KEY_KP9: "9",
+
+  KEY_KPSLASH: "/",
+  KEY_KPASTERISK: "*",
+  KEY_KPMINUS: "-",
+  KEY_KPPLUS: "+",
+  KEY_KPENTER: "⏎",
+  KEY_KP0: "0",
+  KEY_KPDOT: ".",
 
   // TODO: Move outside to config files
   KEY_FILE: " ",
@@ -101,4 +120,8 @@ export const MouseBtnMap = {
   BTN_LEFT: "🖰↰",
   BTN_RIGHT: "🖰↱",
   BTN_MIDDLE: "🖰↕",
+  // Back
+  BTN_SIDE: "🖰B",
+  // Forward
+  BTN_EXTRA: "🖰F",
 };
