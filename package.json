@@ -5,7 +5,9 @@
   "main": "index.js",
   "name": "keycaster-ags",
   "scripts": {
-    "dev": "./scripts/dev.sh"
+    "dev": "./scripts/dev.sh",
+    "clean": "rm -rf ./dist",
+    "build": "ags bundle main.tsx ./dist/keycaster-ags"
   },
   "version": "1.0.0"
 }
