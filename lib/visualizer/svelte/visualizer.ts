@@ -27,9 +27,8 @@ function handleKeyPressed(evt: KeyEvent, ctx: VisualizerContext) {
     if (AppConfig.showMouseAction) {
       ctx.output(MouseBtnMap[evt.key_name] ?? evt.key_name);
       return;
-    } else {
-      return;
     }
+    return;
   }
 
   // Handle modifier keys

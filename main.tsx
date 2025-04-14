@@ -17,7 +17,7 @@ const pkg = await import("./package.json");
 // Start the application
 App.start({
   // Define the instance name and CSS file
-  instanceName: pkg["name"] ?? "keycaster-ags",
+  instanceName: pkg.name ?? "keycaster-ags",
   css: "./style/main.css",
 
   /**
@@ -132,7 +132,7 @@ App.start({
    * @param request - The request string sent to the main instance.
    * @param res - A function to send a response back to the client.
    */
-  requestHandler(request: string, res: (response: any) => void) {
+  requestHandler(request: string, res: (response: unknown) => void) {
     // Example usage to toggle the app:
     // astal -i keycaster-ags toggle
     // or

@@ -1,4 +1,4 @@
-import { bind, Variable } from "astal";
+import { Variable, bind } from "astal";
 import { Gtk } from "astal/gtk4";
 import { VisualizerContext } from "../base/type";
 
@@ -42,7 +42,7 @@ export function Svelte(props: SvelteProps) {
       cssClasses={["key_area"]}
       halign={Gtk.Align.END}
       label={bind(props.keyAreaText)}
-    ></label>
+    />
   );
 
   // Create an overlay to position the label.
