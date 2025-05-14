@@ -16,6 +16,10 @@ window > box {
   font-family: "Noto Sans Mono";
 }
 
+button {
+  outline: none;
+}
+
 button.modifier-key {
   background-color: #333;
   margin: 8px 1px 0 1px;
