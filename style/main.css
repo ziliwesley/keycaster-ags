@@ -1,13 +1,10 @@
 window {
   all: unset;
-  background-color: alpha(#181818, 0.8);
+  /* background-color: alpha(#181818, 0.8); */
+  border-radius: 16px;
+  background-color: #181818;
   border-radius: 16px;
   border: 1px solid #444;
-}
-
-window > box {
-  /* border-radius: 24px; */
-  background-color: #181818;
 }
 
 .key_area {
